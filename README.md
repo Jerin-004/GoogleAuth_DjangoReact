@@ -1,5 +1,5 @@
 Stacks used:
-    React
+    React,
     Django rest framework
     
 

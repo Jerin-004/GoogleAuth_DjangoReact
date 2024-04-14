@@ -1,3 +1,9 @@
+Stacks used:
+    React
+    Django rest framework
+    
+
+
 # To start frontend
 
 ```

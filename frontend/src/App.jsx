@@ -11,7 +11,7 @@ import LogoutPage from "./pages/LogoutPage";
 
 
 function App() {
-  const clientId = '617952947711-k4kt0t6nlja29mq64r8665et2iq4tp7a.apps.googleusercontent.com'
+  const clientId = '994128976416-65j28pbuce6cie3vsqih8kbgkgngs9cj.apps.googleusercontent.com'
 
   const [userInfo, setUserInfo] = useState([]);
 

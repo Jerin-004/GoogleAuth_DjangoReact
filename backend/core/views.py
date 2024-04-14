@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import AccessToken
+from .models import *
+from .serializers import *
 
 from . import utils
 
@@ -25,9 +27,25 @@ class LoginWithGoogle(APIView):
             id_token = utils.get_id_token_with_code_method_1(code)
             print(id_token)
             user_name = id_token['name']
+            email = id_token['email']
             user = authenticate_or_create_user(user_name)
             token = get_jwt_token(user)
-            return Response({'access_token': token, 'username': user_name})
+            
+            payload = {
+                "username":user_name,
+                "emaildata":email
 
+            }
+            serializer = UserDataSerializer(data=payload)
+
+            if serializer.is_valid():
+                serializer.save()
+                # return Response(serializer.data)
+            # return Response(serializer.errors)
+
+
+            return Response({'access_token': token, 'username': user_name})
+            
+            
         return Response(status=status.HTTP_400_BAD_REQUEST)
     

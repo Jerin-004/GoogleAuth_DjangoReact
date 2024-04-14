@@ -10,26 +10,35 @@ const Navbar = () => {
 
   return (
     <div>
-
       <span>
         {userInfo.access_token ? (
           <>
-            <div style={{position:"fixed", right:"90%"}}>
-              Welcome {userInfo?.username} !
-              <div style={{position:"fixed",left:"90%"}}>
-                <Link to="/logout/">
-                  Logout
-                </Link>
+            <div>
+              <div style={{ position: "fixed", right: "78%"}}>
+                <div style={{ paddingTop:"30px", paddingLeft:"30px"}}>Welcome {userInfo?.username} !</div>
+                <div
+                  style={{
+                    position: "fixed",
+                    left: "90%",
+                    bottom:"92%",
+                    backgroundColor: "aquamarine",
+                    padding: "20px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                    borderRadius: "30px",
+                  }}
+                >
+                  <Link to="/logout/">Logout</Link>
+                </div>
               </div>
             </div>
           </>
         ) : (
-          <div className="d-flex align-items-center">
+          <div className="login">
             <GoogleLoginButton />
           </div>
         )}
       </span>
-
     </div>
   );
 };
